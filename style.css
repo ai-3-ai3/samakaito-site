@@ -8,7 +8,7 @@ color:white;
 /* ▼ページ全体 */
 .page{
 min-height:100vh;
-background:#000;
+background:rgba(0,0,0,0.4);
 }
 
 /* ▼動画エリア（画面いっぱい） */
@@ -20,12 +20,13 @@ overflow:hidden;
 
 /* ▼動画背景 */
 .hero-image video{
-position:absolute;
+position:fixed;
 top:0;
 left:0;
 width:100%;
 height:100%;
 object-fit:cover;
+z-index:-1;
 filter:brightness(0.65);
 }
 
