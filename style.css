@@ -24,25 +24,27 @@ margin:auto;
 text-align:center;
 }
 
+/* ▼ここが動画エリア（縦長にした部分） */
 .hero-image{
-height:320px;
+height:420px;
 border-radius:30px;
 overflow:hidden;
-background:
-linear-gradient(
+margin-bottom:20px;
+background:linear-gradient(
 135deg,
 #baffdb,
 #47d98c,
 #0d7a49
 );
-margin-bottom:20px;
 }
 
+/* ▼動画表示 */
 .hero-image video{
 width:100%;
 height:100%;
 object-fit:cover;
 display:block;
+filter:brightness(0.8);
 }
 
 .name{
@@ -50,6 +52,7 @@ font-size:42px;
 font-weight:bold;
 margin:10px 0;
 text-transform:uppercase;
+letter-spacing:2px;
 }
 
 .role{
@@ -80,6 +83,7 @@ align-items:center;
 justify-content:center;
 font-size:12px;
 font-weight:bold;
+color:white;
 }
 
 .links-wrap{
