@@ -5,67 +5,64 @@ background:#0a0a0a;
 color:white;
 }
 
+/* ▼ページ全体 */
 .page{
 min-height:100vh;
-background:
-linear-gradient(
-180deg,
-#9cffc7 0%,
-#4fe08d 30%,
-#1fbf75 60%,
-#0f7a4c 100%
-);
-padding:30px 15px;
+background:#000;
 }
 
-.container{
-max-width:420px;
-margin:auto;
-text-align:center;
-}
-
-/* ▼ここが動画エリア（縦長にした部分） */
+/* ▼動画エリア（画面いっぱい） */
 .hero-image{
-height:420px;
-border-radius:30px;
+position:relative;
+height:100vh;
 overflow:hidden;
-margin-bottom:20px;
-background:linear-gradient(
-135deg,
-#baffdb,
-#47d98c,
-#0d7a49
-);
 }
 
-/* ▼動画表示 */
+/* ▼動画背景 */
 .hero-image video{
+position:absolute;
+top:0;
+left:0;
 width:100%;
 height:100%;
 object-fit:cover;
-display:block;
-filter:brightness(0.8);
+filter:brightness(0.65);
 }
 
+/* ▼中央コンテンツ */
+.container{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+text-align:center;
+max-width:420px;
+width:90%;
+}
+
+/* ▼名前 */
 .name{
 font-size:42px;
 font-weight:bold;
+letter-spacing:2px;
 margin:10px 0;
 text-transform:uppercase;
-letter-spacing:2px;
 }
 
+/* ▼役職 */
 .role{
 font-size:18px;
 opacity:.9;
 }
 
+/* ▼説明 */
 .intro{
 font-size:14px;
 margin-top:10px;
 opacity:.9;
 }
 
+/* ▼SNS */
 .socials{
 display:flex;
 justify-content:center;
@@ -86,11 +83,13 @@ font-weight:bold;
 color:white;
 }
 
+/* ▼リンクカードエリア */
 .links-wrap{
-margin-top:30px;
-background:rgba(255,255,255,0.1);
+margin-top:40px;
+background:rgba(255,255,255,0.12);
 border-radius:25px;
 padding:15px;
+backdrop-filter:blur(10px);
 }
 
 .section-title{
@@ -99,6 +98,7 @@ font-weight:bold;
 margin-bottom:15px;
 }
 
+/* ▼カード */
 .link-card{
 display:flex;
 background:white;
