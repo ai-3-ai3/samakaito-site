@@ -1,20 +1,17 @@
 body{
-  body{
   margin:0;
   font-family:sans-serif;
   color:white;
   background:#000;
-}
 }
 
 /* ▼ページ全体 */
 .page{
   min-height:100vh;
   padding:24px 16px 40px;
-
   background:
     radial-gradient(circle at top,
-      rgba(0,255,120,0.6) 0%,   /* ←緑強め */
+      rgba(0,255,120,0.6) 0%,
       rgba(0,255,120,0.25) 20%,
       rgba(0,0,0,0.95) 50%,
       #000 80%
@@ -43,12 +40,11 @@ body{
   background-repeat:no-repeat;
 }
 
-/* ▼画像を少し暗くして文字や雰囲気を出す */
+/* ▼画像の上の演出 */
 .hero-image::after{
   content:"";
   position:absolute;
   inset:0;
-
   background:
     linear-gradient(
       rgba(0,0,0,0.2),
@@ -58,7 +54,7 @@ body{
       rgba(0,255,120,0.35),
       transparent 60%
     );
-mix-blend-mode: screen;
+  mix-blend-mode:screen;
 }
 
 /* ▼名前 */
@@ -67,10 +63,7 @@ mix-blend-mode: screen;
   font-weight:bold;
   letter-spacing:2px;
   margin:10px 0;
-
   color:#fff;
-
-  /* ネオン発光 */
   text-shadow:
     0 0 5px #00ff88,
     0 0 10px #00ff88,
@@ -78,26 +71,11 @@ mix-blend-mode: screen;
     0 0 40px #00ff88;
 }
 
-/* ▼役職 */
-.role{
-  font-size:18px;
-  opacity:.9;
-  margin:0;
-}
-
-/* ▼説明 */
-.intro{
-  font-size:14px;
-  margin-top:10px;
-  opacity:.9;
-  line-height:1.7;
-}
-
 /* ▼お知らせ */
 .news-ticker{
   width:100%;
   overflow:hidden;
-  margin:12px 0 10px;
+  margin:12px 0 14px;
   padding:10px 0;
   border-top:1px solid rgba(255,255,255,0.18);
   border-bottom:1px solid rgba(255,255,255,0.18);
@@ -111,7 +89,7 @@ mix-blend-mode: screen;
   animation:scrollNews 18s linear infinite;
   font-size:14px;
   font-weight:bold;
-  color:rgba(255,255,255,0.9);
+  color:rgba(255,255,255,0.92);
   letter-spacing:1px;
 }
 
@@ -122,6 +100,13 @@ mix-blend-mode: screen;
   to{
     transform:translateX(-50%);
   }
+}
+
+/* ▼役職 */
+.role{
+  font-size:18px;
+  opacity:.95;
+  margin:0;
 }
 
 /* ▼SNS */
@@ -138,54 +123,39 @@ mix-blend-mode: screen;
   width:64px;
   height:64px;
   border-radius:50%;
-
   display:flex;
   align-items:center;
   justify-content:center;
-
   text-decoration:none;
   color:#ffffff;
   background:#050505;
-
-  /* ネオン枠 */
   border:1px solid rgba(0,255,120,0.3);
-
-  /* 外側＋内側ネオン */
   box-shadow:
     0 0 10px rgba(0,255,120,0.4),
     0 0 20px rgba(0,255,120,0.25),
     inset 0 0 10px rgba(0,255,120,0.2);
-
   transition:
     transform 0.25s ease,
     box-shadow 0.25s ease,
     border-color 0.25s ease;
 }
 
-/* ▼アイコン */
 .social-btn i{
   font-size:24px;
   line-height:1;
   color:#ffffff;
-
-  /* アイコンもほんのり光る */
-  text-shadow:
-    0 0 4px rgba(0,255,120,0.6);
+  text-shadow:0 0 4px rgba(0,255,120,0.6);
 }
 
-/* ▼ホバーで覚醒 */
 .social-btn:hover{
   transform:translateY(-4px) scale(1.05);
-
   box-shadow:
     0 0 15px rgba(0,255,120,0.7),
     0 0 35px rgba(0,255,120,0.4),
     inset 0 0 15px rgba(0,255,120,0.3);
-
   border-color:rgba(0,255,120,0.6);
 }
 
-/* ▼各SNSカラー（ネオンに混ぜる） */
 .social-btn:hover .fa-instagram{
   color:#E1306C;
   text-shadow:0 0 8px #E1306C;
@@ -225,12 +195,20 @@ mix-blend-mode: screen;
 /* ▼カード */
 .link-card{
   display:flex;
+  align-items:stretch;
   background:white;
   color:black;
   border-radius:20px;
   overflow:hidden;
   margin-bottom:12px;
   text-decoration:none;
+  box-shadow:0 8px 20px rgba(0,0,0,0.18);
+  transition:transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.link-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 24px rgba(0,0,0,0.25);
 }
 
 .thumb{
@@ -246,18 +224,28 @@ mix-blend-mode: screen;
 
 .card-title{
   font-weight:bold;
+  font-size:18px;
 }
 
 .card-sub{
   font-size:12px;
   color:#555;
+  margin-top:4px;
 }
 
-/* ▼スマホ微調整（修正版） */
+/* ▼スマホ微調整 */
 @media (max-width:480px){
 
   .page{
+    min-height:100vh;
     padding:0;
+    background:
+      radial-gradient(circle at top,
+        rgba(0,255,120,0.55) 0%,
+        rgba(0,255,120,0.22) 18%,
+        rgba(0,0,0,0.92) 45%,
+        #000 78%
+      );
   }
 
   .container{
@@ -269,9 +257,9 @@ mix-blend-mode: screen;
     width:100%;
     height:52vh;
     min-height:320px;
+    max-height:none;
     border-radius:0 0 28px 28px;
     margin-bottom:24px;
-
     background-image:url("images/samakaito_Bathroom_TOP.jpg");
     background-size:cover;
     background-position:center;
@@ -281,10 +269,26 @@ mix-blend-mode: screen;
   .name{
     font-size:34px;
     letter-spacing:1px;
+    margin:6px 0 10px;
+  }
+
+  .news-ticker{
+    margin:10px 0 12px;
+    padding:8px 0;
+  }
+
+  .news-track{
+    font-size:12px;
+    gap:14px;
   }
 
   .role{
     font-size:16px;
+  }
+
+  .socials{
+    gap:16px;
+    margin-top:20px;
   }
 
   .social-btn{
@@ -299,9 +303,28 @@ mix-blend-mode: screen;
   .links-wrap{
     margin:24px 12px 0;
     border-radius:22px;
+    padding:14px;
+  }
+
+  .section-title{
+    font-size:22px;
   }
 
   .link-card{
     border-radius:18px;
+    margin-bottom:12px;
+  }
+
+  .thumb{
+    width:84px;
+    min-width:84px;
+  }
+
+  .card-text{
+    padding:14px;
+  }
+
+  .card-title{
+    font-size:16px;
   }
 }
