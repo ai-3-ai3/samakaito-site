@@ -1,128 +1,298 @@
 body{
-margin:0;
-font-family:sans-serif;
-background:#0a0a0a;
-color:white;
+  body{
+  margin:0;
+  font-family:sans-serif;
+  color:white;
+  background:#000;
+}
 }
 
 /* ▼ページ全体 */
 .page{
-min-height:100vh;
-background:rgba(0,0,0,0.4);
+  min-height:100vh;
+  padding:24px 16px 40px;
+
+  background:
+    radial-gradient(circle at top,
+      rgba(0,255,120,0.6) 0%,   /* ←緑強め */
+      rgba(0,255,120,0.25) 20%,
+      rgba(0,0,0,0.95) 50%,
+      #000 80%
+    );
 }
 
-/* ▼動画エリア（画面いっぱい） */
-.hero-image{
-position:relative;
-height:100vh;
-overflow:hidden;
-}
-
-/* ▼動画背景 */
-.hero-image video{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-object-fit:cover;
-z-index:-1;
-filter:brightness(0.65);
-}
-
-/* ▼中央コンテンツ */
+/* ▼中央寄せ全体 */
 .container{
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-text-align:center;
-max-width:420px;
-width:90%;
+  max-width:420px;
+  margin:0 auto;
+  text-align:center;
+}
+
+/* ▼トップ画像 */
+.hero-image{
+  position:relative;
+  height:60vh;
+  min-height:360px;
+  max-height:680px;
+  border-radius:30px;
+  overflow:hidden;
+  margin-bottom:28px;
+  background-image:url("images/samakaito_Bathroom_TOP.jpg");
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+}
+
+/* ▼画像を少し暗くして文字や雰囲気を出す */
+.hero-image::after{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background:
+    linear-gradient(
+      rgba(0,0,0,0.2),
+      rgba(0,0,0,0.7)
+    ),
+    radial-gradient(circle at top,
+      rgba(0,255,120,0.35),
+      transparent 60%
+    );
+mix-blend-mode: screen;
 }
 
 /* ▼名前 */
 .name{
-font-size:42px;
-font-weight:bold;
-letter-spacing:2px;
-margin:10px 0;
+  font-size:42px;
+  font-weight:bold;
+  letter-spacing:2px;
+  margin:10px 0;
+
+  color:#fff;
+
+  /* ネオン発光 */
+  text-shadow:
+    0 0 5px #00ff88,
+    0 0 10px #00ff88,
+    0 0 20px #00ff88,
+    0 0 40px #00ff88;
 }
 
 /* ▼役職 */
 .role{
-font-size:18px;
-opacity:.9;
+  font-size:18px;
+  opacity:.9;
+  margin:0;
 }
 
 /* ▼説明 */
 .intro{
-font-size:14px;
-margin-top:10px;
-opacity:.9;
+  font-size:14px;
+  margin-top:10px;
+  opacity:.9;
+  line-height:1.7;
+}
+
+/* ▼お知らせ */
+.news-ticker{
+  width:100%;
+  overflow:hidden;
+  margin:12px 0 10px;
+  padding:10px 0;
+  border-top:1px solid rgba(255,255,255,0.18);
+  border-bottom:1px solid rgba(255,255,255,0.18);
+}
+
+.news-track{
+  display:flex;
+  gap:18px;
+  width:max-content;
+  white-space:nowrap;
+  animation:scrollNews 18s linear infinite;
+  font-size:14px;
+  font-weight:bold;
+  color:rgba(255,255,255,0.9);
+  letter-spacing:1px;
+}
+
+@keyframes scrollNews{
+  from{
+    transform:translateX(0);
+  }
+  to{
+    transform:translateX(-50%);
+  }
 }
 
 /* ▼SNS */
 .socials{
-display:flex;
-justify-content:center;
-gap:10px;
-margin-top:20px;
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  margin-top:24px;
+  flex-wrap:wrap;
 }
 
+/* ▼ネオンディスクボタン */
 .social-btn{
-width:50px;
-height:50px;
-border-radius:50%;
-background:black;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:12px;
-font-weight:bold;
-color:white;
+  width:64px;
+  height:64px;
+  border-radius:50%;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  text-decoration:none;
+  color:#ffffff;
+  background:#050505;
+
+  /* ネオン枠 */
+  border:1px solid rgba(0,255,120,0.3);
+
+  /* 外側＋内側ネオン */
+  box-shadow:
+    0 0 10px rgba(0,255,120,0.4),
+    0 0 20px rgba(0,255,120,0.25),
+    inset 0 0 10px rgba(0,255,120,0.2);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+/* ▼アイコン */
+.social-btn i{
+  font-size:24px;
+  line-height:1;
+  color:#ffffff;
+
+  /* アイコンもほんのり光る */
+  text-shadow:
+    0 0 4px rgba(0,255,120,0.6);
+}
+
+/* ▼ホバーで覚醒 */
+.social-btn:hover{
+  transform:translateY(-4px) scale(1.05);
+
+  box-shadow:
+    0 0 15px rgba(0,255,120,0.7),
+    0 0 35px rgba(0,255,120,0.4),
+    inset 0 0 15px rgba(0,255,120,0.3);
+
+  border-color:rgba(0,255,120,0.6);
+}
+
+/* ▼各SNSカラー（ネオンに混ぜる） */
+.social-btn:hover .fa-instagram{
+  color:#E1306C;
+  text-shadow:0 0 8px #E1306C;
+}
+
+.social-btn:hover .fa-soundcloud{
+  color:#ff5500;
+  text-shadow:0 0 8px #ff5500;
+}
+
+.social-btn:hover .fa-tiktok{
+  color:#00f2ea;
+  text-shadow:0 0 8px #00f2ea;
+}
+
+.social-btn:hover .fa-youtube{
+  color:#ff0000;
+  text-shadow:0 0 8px #ff0000;
 }
 
 /* ▼リンクカードエリア */
 .links-wrap{
-margin-top:40px;
-background:rgba(255,255,255,0.12);
-border-radius:25px;
-padding:15px;
-backdrop-filter:blur(10px);
+  margin-top:40px;
+  background:rgba(255,255,255,0.12);
+  border-radius:25px;
+  padding:15px;
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
 }
 
 .section-title{
-font-size:24px;
-font-weight:bold;
-margin-bottom:15px;
+  font-size:24px;
+  font-weight:bold;
+  margin-bottom:15px;
 }
 
 /* ▼カード */
 .link-card{
-display:flex;
-background:white;
-color:black;
-border-radius:20px;
-overflow:hidden;
-margin-bottom:12px;
+  display:flex;
+  background:white;
+  color:black;
+  border-radius:20px;
+  overflow:hidden;
+  margin-bottom:12px;
+  text-decoration:none;
 }
 
 .thumb{
-width:90px;
-background:linear-gradient(135deg,#0d7a49,#1fbf75);
+  width:90px;
+  min-width:90px;
+  background:linear-gradient(135deg,#0d7a49,#1fbf75);
 }
 
 .card-text{
-padding:15px;
-flex:1;
+  padding:15px;
+  flex:1;
 }
 
 .card-title{
-font-weight:bold;
+  font-weight:bold;
 }
 
 .card-sub{
-font-size:12px;
-color:#555;
+  font-size:12px;
+  color:#555;
+}
+
+/* ▼スマホ微調整 */
+@media (max-width:480px){
+  .page{
+    padding:20px 12px 32px;
+  }
+
+  .hero-image{
+    height:52vh;
+    min-height:300px;
+    border-radius:24px;
+    margin-bottom:24px;
+  }
+
+  .name{
+    font-size:34px;
+    letter-spacing:1px;
+  }
+
+  .role{
+    font-size:16px;
+  }
+
+  .intro{
+    font-size:13px;
+  }
+
+  .social-btn{
+    width:52px;
+    height:52px;
+  }
+
+  .social-btn i{
+    font-size:20px;
+  }
+
+  .links-wrap{
+    border-radius:22px;
+  }
+
+  .link-card{
+    border-radius:18px;
+  }
 }
