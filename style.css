@@ -253,38 +253,31 @@ mix-blend-mode: screen;
   color:#555;
 }
 
-/* ▼スマホ微調整（余白なしver） */
+/* ▼スマホ微調整（修正版） */
 @media (max-width:480px){
 
-  /* ←ここが一番重要（枠消す） */
   .page{
     padding:0;
   }
 
-  /* コンテンツ横幅いっぱい */
   .container{
     max-width:100%;
     width:100%;
   }
 
-  /* 画像を画面いっぱいに */
   .hero-image{
     width:100%;
-    height:auto;
-    min-height:auto;
-    border-radius:0 0 28px 28px; /* ←少し丸み残すならこれ */
+    height:52vh;
+    min-height:320px;
+    border-radius:0 0 28px 28px;
     margin-bottom:24px;
+
+    background-image:url("images/samakaito_Bathroom_TOP.jpg");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
   }
 
-  /* 完全ベタにしたい場合はこっち👇
-  .hero-image{
-    width:100%;
-    border-radius:0;
-    margin-bottom:24px;
-  }
-  */
-
-  /* 文字バランス調整 */
   .name{
     font-size:34px;
     letter-spacing:1px;
@@ -294,11 +287,6 @@ mix-blend-mode: screen;
     font-size:16px;
   }
 
-  .intro{
-    font-size:13px;
-  }
-
-  /* SNSボタン */
   .social-btn{
     width:56px;
     height:56px;
@@ -308,7 +296,6 @@ mix-blend-mode: screen;
     font-size:20px;
   }
 
-  /* 下のカードは少し余白あってOK */
   .links-wrap{
     margin:24px 12px 0;
     border-radius:22px;
