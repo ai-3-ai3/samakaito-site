@@ -1,7 +1,7 @@
 body{
   margin:0;
   font-family:sans-serif;
-  color:white;
+  color:#fff;
   background:#000;
 }
 
@@ -21,6 +21,7 @@ body{
 /* ▼中央寄せ全体 */
 .container{
   max-width:420px;
+  width:100%;
   margin:0 auto;
   text-align:center;
 }
@@ -28,6 +29,7 @@ body{
 /* ▼トップ画像 */
 .hero-image{
   position:relative;
+  width:100%;
   height:60vh;
   min-height:360px;
   max-height:680px;
@@ -38,6 +40,9 @@ body{
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat;
+  box-shadow:
+    0 0 20px rgba(0,255,120,0.12),
+    0 20px 40px rgba(0,0,0,0.35);
 }
 
 /* ▼画像の上の演出 */
@@ -47,8 +52,8 @@ body{
   inset:0;
   background:
     linear-gradient(
-      rgba(0,0,0,0.2),
-      rgba(0,0,0,0.7)
+      rgba(0,0,0,0.18),
+      rgba(0,0,0,0.68)
     ),
     radial-gradient(circle at top,
       rgba(0,255,120,0.35),
@@ -60,9 +65,9 @@ body{
 /* ▼名前 */
 .name{
   font-size:42px;
-  font-weight:bold;
+  font-weight:700;
   letter-spacing:2px;
-  margin:10px 0;
+  margin:10px 0 8px;
   color:#fff;
   text-shadow:
     0 0 5px #00ff88,
@@ -79,6 +84,8 @@ body{
   padding:10px 0;
   border-top:1px solid rgba(255,255,255,0.18);
   border-bottom:1px solid rgba(255,255,255,0.18);
+  -webkit-mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent);
+  mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent);
 }
 
 .news-track{
@@ -86,9 +93,9 @@ body{
   gap:18px;
   width:max-content;
   white-space:nowrap;
-  animation:scrollNews 18s linear infinite;
+  animation:scrollNews 20s linear infinite;
   font-size:14px;
-  font-weight:bold;
+  font-weight:700;
   color:rgba(255,255,255,0.92);
   letter-spacing:1px;
 }
@@ -107,6 +114,7 @@ body{
   font-size:18px;
   opacity:.95;
   margin:0;
+  letter-spacing:0.5px;
 }
 
 /* ▼SNS */
@@ -127,7 +135,7 @@ body{
   align-items:center;
   justify-content:center;
   text-decoration:none;
-  color:#ffffff;
+  color:#fff;
   background:#050505;
   border:1px solid rgba(0,255,120,0.3);
   box-shadow:
@@ -143,7 +151,7 @@ body{
 .social-btn i{
   font-size:24px;
   line-height:1;
-  color:#ffffff;
+  color:#fff;
   text-shadow:0 0 4px rgba(0,255,120,0.6);
 }
 
@@ -166,44 +174,58 @@ body{
   text-shadow:0 0 8px #ff5500;
 }
 
-.social-btn:hover .fa-tiktok{
-  color:#00f2ea;
-  text-shadow:0 0 8px #00f2ea;
-}
-
 .social-btn:hover .fa-youtube{
   color:#ff0000;
   text-shadow:0 0 8px #ff0000;
 }
 
+.social-btn:hover .fa-spotify{
+  color:#1DB954;
+  text-shadow:0 0 8px #1DB954;
+}
+
+.social-btn:hover .fa-apple{
+  color:#ffffff;
+  text-shadow:0 0 8px rgba(255,255,255,0.95);
+}
+
 /* ▼リンクカードエリア */
 .links-wrap{
   margin-top:40px;
-  background:rgba(255,255,255,0.12);
+  background:rgba(255,255,255,0.1);
+  border:1px solid rgba(255,255,255,0.08);
   border-radius:25px;
   padding:15px;
   backdrop-filter:blur(10px);
   -webkit-backdrop-filter:blur(10px);
+  box-shadow:
+    0 12px 30px rgba(0,0,0,0.22),
+    0 0 20px rgba(0,255,120,0.06);
 }
 
 .section-title{
   font-size:24px;
-  font-weight:bold;
+  font-weight:700;
   margin-bottom:15px;
+  color:#fff;
+  letter-spacing:1px;
 }
 
 /* ▼カード */
 .link-card{
   display:flex;
   align-items:stretch;
-  background:white;
-  color:black;
+  background:#fff;
+  color:#000;
   border-radius:20px;
   overflow:hidden;
   margin-bottom:12px;
   text-decoration:none;
   box-shadow:0 8px 20px rgba(0,0,0,0.18);
-  transition:transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
 }
 
 .link-card:hover{
@@ -214,150 +236,116 @@ body{
 .thumb{
   width:90px;
   min-width:90px;
-  background:linear-gradient(135deg,#0d7a49,#1fbf75);
+  background:
+    linear-gradient(135deg,#0d7a49,#1fbf75);
+  position:relative;
+}
+
+.thumb::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255,255,255,0.16), transparent 45%);
 }
 
 .card-text{
   padding:15px;
   flex:1;
+  text-align:left;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
 }
 
 .card-title{
-  font-weight:bold;
+  font-weight:700;
   font-size:18px;
+  line-height:1.2;
 }
 
 .card-sub{
   font-size:12px;
   color:#555;
   margin-top:4px;
+  line-height:1.5;
 }
 
-/* ▼スマホ完全版（PCと統一＋調整済み） */
+/* ▼Coming Soonカード */
+.link-card-disabled{
+  opacity:0.72;
+  cursor:default;
+}
+
+.link-card-disabled:hover{
+  transform:none;
+  box-shadow:0 8px 20px rgba(0,0,0,0.18);
+}
+
+/* ▼最後のカードの余白調整 */
+.links-wrap .link-card:last-child,
+.links-wrap .link-card-disabled:last-child{
+  margin-bottom:0;
+}
+
+/* ▼スマホ */
 @media (max-width:480px){
 
-  /* ▼全体 */
   .page{
-    min-height:100vh;
     padding:24px 16px 40px;
-
-    background:
-      radial-gradient(circle at top,
-        rgba(0,255,120,0.6) 0%,
-        rgba(0,255,120,0.25) 20%,
-        rgba(0,0,0,0.95) 50%,
-        #000 80%
-      );
   }
 
-  .container{
-    max-width:420px;
-    width:100%;
-    margin:0 auto;
-    text-align:center;
-  }
-
-  /* ▼トップ画像（PCと同じ見た目） */
   .hero-image{
-    width:100%;
     height:60vh;
     min-height:360px;
     max-height:680px;
-
     border-radius:30px;
-    overflow:hidden;
     margin-bottom:28px;
-
-    background-image:url("images/samakaito_Bathroom_TOP.jpg");
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
   }
 
-  /* ▼名前 */
   .name{
     font-size:34px;
     letter-spacing:1px;
-    margin:10px 0;
+    margin:10px 0 8px;
   }
 
-  /* ▼お知らせ */
   .news-ticker{
-    width:100%;
-    overflow:hidden;
     margin:12px 0 14px;
     padding:10px 0;
-
     border-top:1px solid rgba(255,255,255,0.2);
     border-bottom:1px solid rgba(255,255,255,0.2);
-
-    -webkit-mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent);
-    mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent);
   }
 
   .news-track{
-    display:flex;
     gap:16px;
-    width:max-content;
-    white-space:nowrap;
-
     font-size:12px;
-    font-weight:bold;
     letter-spacing:1px;
-
-    color:rgba(255,255,255,0.9);
-
     animation:scrollNews 28s linear infinite;
   }
 
-  /* ▼役職 */
   .role{
     font-size:16px;
     margin-top:6px;
   }
 
-  /* ▼SNS */
   .socials{
-    display:flex;
-    justify-content:center;
     gap:16px;
     margin-top:20px;
-    flex-wrap:wrap;
   }
 
   .social-btn{
     width:56px;
     height:56px;
-    border-radius:50%;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    background:#050505;
-    border:1px solid rgba(0,255,120,0.3);
-
-    box-shadow:
-      0 0 10px rgba(0,255,120,0.4),
-      0 0 20px rgba(0,255,120,0.25),
-      inset 0 0 10px rgba(0,255,120,0.2);
   }
 
   .social-btn i{
     font-size:20px;
-    color:#fff;
   }
 
-  /* ▼リンクエリア */
   .links-wrap{
     margin-top:32px;
     padding:15px;
-
-    background:rgba(255,255,255,0.12);
     border-radius:25px;
-
-    backdrop-filter:blur(10px);
-    -webkit-backdrop-filter:blur(10px);
   }
 
   .section-title{
@@ -365,18 +353,14 @@ body{
     margin-bottom:14px;
   }
 
-  /* ▼カード */
   .link-card{
-    display:flex;
     border-radius:18px;
-    overflow:hidden;
     margin-bottom:12px;
   }
 
   .thumb{
     width:84px;
     min-width:84px;
-    background:linear-gradient(135deg,#0d7a49,#1fbf75);
   }
 
   .card-text{
