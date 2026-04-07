@@ -288,6 +288,13 @@ body{
   margin-bottom:0;
 }
 
+.sns-sub{
+  font-size:12px;
+  opacity:0.7;
+  margin-bottom:20px;
+  letter-spacing:0.5px;
+}
+
 /* ▼スマホ */
 @media (max-width:480px){
 
